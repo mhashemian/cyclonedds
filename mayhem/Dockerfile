@@ -15,7 +15,7 @@
 ################################################################################
 
 FROM gcr.io/oss-fuzz-base/base-builder as builder
-RUN apt-get update && apt install -y autoconf automake libssl-dev libcunit1 libcunit1-dev bison libbison-dev
+RUN apt-get update && apt install -y autoconf automake libssl-dev libcunit1 libcunit1-dev bison libbison-dev unzip
 
 COPY . cyclonedds
 
@@ -27,3 +27,6 @@ RUN compile
 FROM ubuntu 
 
 COPY --from=builder /out /
+#RUN unzip fuzz_config_init_seed_corpus.zip
+#RUN mkdir testsuite
+#COPY fuzz_config_init_seed_corpus /testsuite
