@@ -29,6 +29,4 @@ FROM ubuntu
 COPY --from=builder /out /
 
 RUN apt-get update && apt install -y zip unzip
-#RUN unzip fuzz_config_init_seed_corpus.zip
-#RUN mkdir testsuite
-#COPY fuzz_config_init_seed_corpus /testsuite
+RUN unzip fuzz_config_init_seed_corpus.zip -d testsuite/
